@@ -45,6 +45,6 @@
     - radioButton에 선택된게 없으면 lblError에 에러 메시지를 출력함
 
 ## 배운 내용
-- Windows Forms 이벤트 처리 및 컨트롤 조작
-- 코드의 재사용성을 위해 계산 로직을 중앙 메서드로 분리하는 방법
+- GroupBox로 이벤트들을 묶는 방법을 배움
+- radioButton과 checkBox의 차이점을 배움
 - 숫자 포맷팅으로 사용자 친화적인 금액 표시 (`{value:N0}`)
