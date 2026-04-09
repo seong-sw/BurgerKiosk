@@ -7,6 +7,15 @@ namespace BurgerKiosk
             InitializeComponent();
         }
 
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            rdoHamburger.Checked = false;
+            rdoBulgogiBurger.Checked = false;
+            rdoChickenBurger.Checked = false;
+            lblError.Visible = false;
+            this.Refresh();
+        }
+
         int totalCost = 0;
 
         private void btnOrder_Click(object sender, EventArgs e)
@@ -80,6 +89,55 @@ namespace BurgerKiosk
             chkSauce.Checked = false;
             lblTotal.Text = "총 금액 : 0원";
             lstOrder.Items.Clear();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnOrder_Click(sender, e);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                return;
+            }
+
+            Control focused = this.ActiveControl;
+            if (focused is ContainerControl c && c.ActiveControl != null)
+                focused = c.ActiveControl;
+
+            var menu = new Control[] { rdoHamburger, rdoBulgogiBurger, rdoChickenBurger };
+            var options = new Control[] { chkFries, chkCola, chkCheese, chkSauce };
+
+            int mi = Array.IndexOf(menu, focused);
+            if (mi >= 0)
+            {
+                if (e.KeyCode == Keys.Down) { menu[Math.Min(mi + 1, menu.Length - 1)].Focus(); e.Handled = true; e.SuppressKeyPress = true; }
+                else if (e.KeyCode == Keys.Up) { menu[Math.Max(mi - 1, 0)].Focus(); e.Handled = true; e.SuppressKeyPress = true; }
+                else if (e.KeyCode == Keys.Space) { ((RadioButton)focused).Checked = true; e.Handled = true; e.SuppressKeyPress = true; }
+                return;
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Tab || keyData == (Keys.Tab | Keys.Shift))
+            {
+                Control focused = this.ActiveControl;
+                if (focused is ContainerControl c && c.ActiveControl != null)
+                    focused = c.ActiveControl;
+
+                var menu = new Control[] { rdoHamburger, rdoBulgogiBurger, rdoChickenBurger };
+                var options = new Control[] { chkFries, chkCola, chkCheese, chkSauce };
+
+                if (Array.IndexOf(menu, focused) >= 0)
+                    options[0].Focus();
+                else
+                    menu[0].Focus();
+
+                return true; // handled
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
