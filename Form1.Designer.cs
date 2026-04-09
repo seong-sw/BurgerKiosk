@@ -91,6 +91,7 @@
             rdoChickenBurger.TabStop = true;
             rdoChickenBurger.Text = "치킨버거";
             rdoChickenBurger.UseVisualStyleBackColor = true;
+            rdoChickenBurger.CheckedChanged += chk_CheckedChanged;
             // 
             // rdoBulgogiBurger
             // 
@@ -102,6 +103,7 @@
             rdoBulgogiBurger.TabStop = true;
             rdoBulgogiBurger.Text = "불고기버거";
             rdoBulgogiBurger.UseVisualStyleBackColor = true;
+            rdoBulgogiBurger.CheckedChanged += chk_CheckedChanged;
             // 
             // rdoHamburger
             // 
@@ -113,6 +115,7 @@
             rdoHamburger.TabStop = true;
             rdoHamburger.Text = "햄버거";
             rdoHamburger.UseVisualStyleBackColor = true;
+            rdoHamburger.CheckedChanged += chk_CheckedChanged;
             // 
             // picBurger3
             // 
@@ -167,6 +170,7 @@
             chkSauce.TabIndex = 7;
             chkSauce.Text = "소스 추가";
             chkSauce.UseVisualStyleBackColor = true;
+            chkSauce.CheckedChanged += chk_CheckedChanged;
             // 
             // chkCheese
             // 
@@ -177,6 +181,7 @@
             chkCheese.TabIndex = 6;
             chkCheese.Text = "치즈 추가";
             chkCheese.UseVisualStyleBackColor = true;
+            chkCheese.CheckedChanged += chk_CheckedChanged;
             // 
             // chkCola
             // 
@@ -187,6 +192,7 @@
             chkCola.TabIndex = 5;
             chkCola.Text = "콜라";
             chkCola.UseVisualStyleBackColor = true;
+            chkCola.CheckedChanged += chk_CheckedChanged;
             // 
             // chkFries
             // 
@@ -197,6 +203,7 @@
             chkFries.TabIndex = 4;
             chkFries.Text = "감자튀김";
             chkFries.UseVisualStyleBackColor = true;
+            chkFries.CheckedChanged += chk_CheckedChanged;
             // 
             // grpList
             // 
@@ -261,7 +268,6 @@
             lblError.Name = "lblError";
             lblError.Size = new Size(214, 29);
             lblError.TabIndex = 12;
-            lblError.TabStop = false;
             lblError.Text = "메뉴를 선택해주세요.";
             lblError.Visible = false;
             // 
