@@ -65,7 +65,7 @@ namespace BurgerKiosk
                 lstOrder.Items.Add("소스 500원");
             }
 
-            lblTotal.Text = $"총 금액 : {totalCost}원";
+            lblTotal.Text = $"총 금액 : {totalCost:N0}원";
 
         }
 
