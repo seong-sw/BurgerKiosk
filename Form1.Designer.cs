@@ -46,6 +46,7 @@
             lstOrder = new ListBox();
             btnOrder = new Button();
             btnReset = new Button();
+            lblError = new Label();
             grpMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBurger3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBurger2).BeginInit();
@@ -248,11 +249,24 @@
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += btnReset_Click;
             // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.Font = new Font("Pretendard JP Variable", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(582, 563);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(214, 29);
+            lblError.TabIndex = 9;
+            lblError.Text = "메뉴를 선택해주세요.";
+            lblError.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1144, 630);
+            Controls.Add(lblError);
             Controls.Add(btnReset);
             Controls.Add(btnOrder);
             Controls.Add(grpList);
@@ -294,5 +308,6 @@
         private ListBox lstOrder;
         private Button btnOrder;
         private Button btnReset;
+        private Label lblError;
     }
 }

@@ -15,6 +15,16 @@ namespace BurgerKiosk
 
             totalCost = 0;
 
+            if (!rdoHamburger.Checked && !rdoBulgogiBurger.Checked && !rdoChickenBurger.Checked)
+            {
+                lblError.Visible = true;
+                return;
+            }
+            else
+            {
+                lblError.Visible = false;
+            }
+
             if (rdoHamburger.Checked)
             {
                 totalCost += 5000;
